@@ -1,0 +1,48 @@
+---
+title: "What Wins in the NFL?"
+Author: Michael Rodriguez
+date: "6/5/2021"
+output:
+  html_document: default
+  pdf_document: default
+  word_document: default
+---
+
+## loading the neccessary packages and spreadsheet
+
+```{r}
+library(ggplot2)
+library(stats)
+library(corrplot)
+library(readxl)
+NFL <- read_excel("C:/Users/Owner/Desktop/Excel Workbooks/NFL.xlsx")
+```
+
+## now we run a pearson corr test to find any significant relationships
+```{r}
+cor(NFL,method = "pearson")
+
+```
+
+
+## for a more visual look at the corrlations, assign the corr to a variable
+```{r}
+NFLCorr<-cor(NFL,method = "pearson")
+```
+
+## now we can use this new variable to make a few visualizations
+```{r}
+corrplot(NFLCorr, method="color")
+corrplot(NFLCorr, method="number")
+```
+
+
+## We can see that in ranked order the most important factors are:
+## 1.average_yards_for at **.83**
+## 2.turnover_differential at **.70**
+## 3.qb_ranking at **-.62**
+## 4.third_down_cr at **.61**
+## 5.def_rank at **-.58**
+## 6.division_strength at **-.42**
+## 7.qb_scr at **.25** *but above qb_cap because qb_scr has a higher corr with average_**yards_for*
+## 8.qb_cap at **.25
