@@ -1,2 +1,3 @@
 # NFL-Powerpoint
-NFL metrics that correlate with winning (2020) R and PowerPoint
+For my first presenation as a data analyst I decided to look at 
+the 2020 NFL season to determine what correlates best with winning. 
